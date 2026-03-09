@@ -1,0 +1,11 @@
+.tarea{
+padding:10px;
+border-bottom:1px solid #eee;
+display:flex;
+justify-content:space-between;
+}
+
+.completada{
+color:green;
+font-weight:bold;
+}

@@ -1,0 +1,22 @@
+<div class="agregar">
+
+<input type="text" #nuevaTarea placeholder="Nueva tarea">
+
+<button (click)="agregarTarea(nuevaTarea.value); nuevaTarea.value=''">
+Agregar
+</button>
+
+</div>
+
+<div class="tareas">
+
+@for (tarea of tareas; track tarea.id){
+
+<app-tarea 
+[tarea]="tarea"
+(eliminar)="eliminarTarea($event)">
+</app-tarea>
+
+}
+
+</div>

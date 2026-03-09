@@ -1,0 +1,13 @@
+<div class="tarea">
+
+<input type="checkbox" [(ngModel)]="tarea.completado">
+
+<p [class.hecha]="tarea.completado">
+{{tarea.titulo}}
+</p>
+
+<button (click)="eliminar.emit(tarea.id)">
+❌
+</button>
+
+</div>

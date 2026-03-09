@@ -2,13 +2,15 @@
   "name": "gestor-tareas",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:gestor-tareas": "node dist/gestor-tareas/server/server.mjs"
-  },
+  "ng": "ng",
+  "start": "ng serve",
+  "build": "ng build",
+  "build:prod": "ng build --configuration production",
+  "deploy": "ng build --configuration production --base-href=/TAREAS/ && npx angular-cli-ghpages --dir=dist/gestor-tareas/browser",
+  "watch": "ng build --watch --configuration development",
+  "test": "ng test",
+  "serve:ssr:gestor-tareas": "node dist/gestor-tareas/server/server.mjs"
+},
   "private": true,
   "packageManager": "npm@11.6.2",
   "dependencies": {
