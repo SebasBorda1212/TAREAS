@@ -1,21 +1,53 @@
-<div class="agregar">
+<div class="formulario">
 
-<input type="text" #nuevaTarea placeholder="Nueva tarea">
+<input
+type="text"
+placeholder="Título de la tarea"
+[(ngModel)]="titulo">
 
-<button (click)="agregarTarea(nuevaTarea.value); nuevaTarea.value=''">
-Agregar
+<input
+type="date"
+[(ngModel)]="fecha">
+
+<textarea
+placeholder="Descripción de la tarea"
+[(ngModel)]="descripcion">
+</textarea>
+
+<button (click)="agregarTarea()">
+Agregar Tarea Nueva
 </button>
 
 </div>
 
-<div class="tareas">
 
-@for (tarea of tareas; track tarea.id){
+<div class="tareas-container">
 
-<app-tarea 
-[tarea]="tarea"
-(eliminar)="eliminarTarea($event)">
-</app-tarea>
+@for (tarea of tareas; track tarea){
+
+@if(!tarea.completado){
+
+<div class="tarea-card">
+
+<h3>{{tarea.titulo}}</h3>
+
+<span class="fecha">{{tarea.fecha}}</span>
+
+<p class="descripcion">
+{{tarea.descripcion}}
+</p>
+
+<div class="acciones">
+
+<button (click)="terminarTarea(tarea)">
+Terminada
+</button>
+
+</div>
+
+</div>
+
+}
 
 }
 

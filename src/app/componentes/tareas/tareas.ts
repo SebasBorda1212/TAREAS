@@ -1,34 +1,41 @@
 import { Component, Input } from '@angular/core';
-import { Tarea } from '../tarea/tarea';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-selector:'app-tareas',
-standalone:true,
-imports:[Tarea],
-templateUrl:'./tareas.html',
-styleUrl:'./tareas.css'
+selector: 'app-tareas',
+standalone: true,
+imports:[FormsModule],
+templateUrl: './tareas.html',
+styleUrl: './tareas.css'
 })
-
-export class Tareas{
+export class Tareas {
 
 @Input() tareas:any[] = [];
 
-agregarTarea(titulo:string){
+titulo="";
+fecha="";
+descripcion="";
 
-if(titulo.trim() === '') return;
+agregarTarea(){
 
-this.tareas.push({
-id:Date.now().toString(),
-titulo:titulo,
+if(this.titulo.trim() === "") return;
+
+const nuevaTarea = {
+titulo:this.titulo,
+fecha:this.fecha,
+descripcion:this.descripcion,
 completado:false
-});
+};
 
+this.tareas.push(nuevaTarea);
+
+this.titulo="";
+this.fecha="";
+this.descripcion="";
 }
 
-eliminarTarea(id:string){
-
-this.tareas = this.tareas.filter(t => t.id !== id);
-
+terminarTarea(tarea:any){
+tarea.completado=true;
 }
 
 }
