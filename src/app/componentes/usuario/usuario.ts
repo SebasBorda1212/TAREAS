@@ -11,7 +11,9 @@ export class Usuario{
 
 @Input() usuario:any;
 
-@Output() seleccionar = new EventEmitter<any>();
+@Input() seleccionado:boolean = false;
+
+@Output() seleccionar = new EventEmitter();
 
 seleccionarUsuario(){
 this.seleccionar.emit(this.usuario);

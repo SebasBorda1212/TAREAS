@@ -1,7 +1,10 @@
-<div class="usuario" (click)="seleccionarUsuario()">
+<div
+class="usuario"
+[class.activo]="seleccionado"
+(click)="seleccionarUsuario()">
 
 <img [src]="usuario.avatar">
 
-<span>{{usuario.nombre}}</span>
+<p>{{usuario.nombre}}</p>
 
 </div>

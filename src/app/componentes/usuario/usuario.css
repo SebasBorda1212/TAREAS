@@ -1,20 +1,18 @@
 .usuario{
-background:#4b3a64;
-padding:12px 20px;
-border-radius:12px;
 display:flex;
 align-items:center;
-gap:12px;
+gap:10px;
+padding:10px;
+border-radius:10px;
 cursor:pointer;
 transition:0.3s;
 }
 
 .usuario:hover{
-background:#6d56a0;
+background:#2d1b4e;
 }
 
-.usuario img{
-width:40px;
-height:40px;
-border-radius:50%;
+.usuario.activo{
+background:#6c3bd1;
+color:white;
 }

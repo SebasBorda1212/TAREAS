@@ -15,6 +15,7 @@
 
 <app-usuario
 [usuario]="usuario"
+[seleccionado]="usuarioSeleccionado?.id === usuario.id"
 (seleccionar)="seleccionarUsuario($event)">
 </app-usuario>
 
