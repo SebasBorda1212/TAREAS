@@ -12,15 +12,23 @@ export class Tareas {
 
 @Input() tareas:any[] = [];
 
+mostrarModal=false;
+
 titulo="";
 fecha="";
 descripcion="";
 
+abrirModal(){
+this.mostrarModal=true;
+}
+
+cerrarModal(){
+this.mostrarModal=false;
+}
+
 agregarTarea(){
 
-if(this.titulo.trim() === "") return;
-
-const nuevaTarea = {
+const nuevaTarea={
 titulo:this.titulo,
 fecha:this.fecha,
 descripcion:this.descripcion,
@@ -32,6 +40,8 @@ this.tareas.push(nuevaTarea);
 this.titulo="";
 this.fecha="";
 this.descripcion="";
+
+this.cerrarModal();
 }
 
 terminarTarea(tarea:any){

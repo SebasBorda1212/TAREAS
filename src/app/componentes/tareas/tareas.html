@@ -1,27 +1,8 @@
-<div class="formulario">
-
-<input
-type="text"
-placeholder="Título de la tarea"
-[(ngModel)]="titulo">
-
-<input
-type="date"
-[(ngModel)]="fecha">
-
-<textarea
-placeholder="Descripción de la tarea"
-[(ngModel)]="descripcion">
-</textarea>
-
-<button (click)="agregarTarea()">
+<button class="btn-agregar" (click)="abrirModal()">
 Agregar Tarea Nueva
 </button>
 
-</div>
-
-
-<div class="tareas-container">
+<div class="lista-tareas">
 
 @for (tarea of tareas; track tarea){
 
@@ -38,17 +19,56 @@ Agregar Tarea Nueva
 </p>
 
 <div class="acciones">
-
 <button (click)="terminarTarea(tarea)">
 Terminada
+</button>
+</div>
+
+</div>
+
+}
+
+}
+
+</div>
+
+
+@if(mostrarModal){
+
+<div class="overlay" (click)="cerrarModal()">
+
+<div class="modal" (click)="$event.stopPropagation()">
+
+<h2>Nueva Tarea</h2>
+
+<input
+type="text"
+placeholder="Título"
+[(ngModel)]="titulo">
+
+<input
+type="date"
+[(ngModel)]="fecha">
+
+<textarea
+placeholder="Descripción"
+[(ngModel)]="descripcion">
+</textarea>
+
+<div class="botones">
+
+<button (click)="agregarTarea()">
+Guardar
+</button>
+
+<button (click)="cerrarModal()">
+Cancelar
 </button>
 
 </div>
 
 </div>
 
-}
-
-}
-
 </div>
+
+}
