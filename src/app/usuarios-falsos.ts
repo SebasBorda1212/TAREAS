@@ -20,6 +20,24 @@ tareas:[
 },
 
 {
+id:'u5',
+nombre:'Dwayne Johnson',
+avatar:'user-5.jpg',
+tareas:[
+{id:'t6',titulo:'Comprar materiales',completado:false}
+]
+},
+
+{
+id:'u6',
+nombre:'Westcol',
+avatar:'user-6.jpg',
+tareas:[
+{id:'t7',titulo:'Comprar materiales',completado:false}
+]
+},
+
+{
 id:'u3',
 nombre:'Carl Johnson',
 avatar:'user-3.jpg',
