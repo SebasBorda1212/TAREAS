@@ -2,7 +2,7 @@ export const USUARIOS_FALSOS = [
 
 {
 id:'u1',
-nombre:'Mia Khalifa',
+nombre:'Donald Trump',
 avatar:'user-1.jpg',
 tareas:[
 {id:'t1',titulo:'Revisar correo',completado:false},
@@ -12,7 +12,7 @@ tareas:[
 
 {
 id:'u2',
-nombre:'Esperanza Gómez',
+nombre:'Johnny Depp',
 avatar:'user-2.jpg',
 tareas:[
 {id:'t3',titulo:'Comprar materiales',completado:false}
