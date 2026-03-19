@@ -28,9 +28,21 @@ this.mostrarModal=false;
 
 agregarTarea(){
 
+const ahora = new Date();
+
+const fechaFormateada = ahora.toLocaleString('es-CO', {
+weekday:'long',
+year:'numeric',
+month:'long',
+day:'numeric',
+hour:'numeric',
+minute:'2-digit',
+hour12:true
+});
+
 const nuevaTarea={
 titulo:this.titulo,
-fecha:this.fecha,
+fecha:fechaFormateada,
 descripcion:this.descripcion,
 completado:false
 };
