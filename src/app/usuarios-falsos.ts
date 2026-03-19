@@ -30,7 +30,7 @@ tareas:[
 
 {
 id:'u6',
-nombre:'Westcol',
+nombre:'WestCol',
 avatar:'user-6.jpg',
 tareas:[
 {id:'t7',titulo:'Comprar materiales',completado:false}

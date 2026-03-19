@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TareasService } from '../../services/tareas.service';
 
 @Component({
 selector: 'app-tareas',
@@ -10,13 +11,20 @@ styleUrl: './tareas.css'
 })
 export class Tareas {
 
-@Input() tareas:any[] = [];
+tareas:any[] = [];
 
 mostrarModal=false;
 
 titulo="";
 fecha="";
 descripcion="";
+
+constructor(private tareasService:TareasService){}
+
+/* 🔥 ESTE ES EL TRUCO */
+ngOnInit(){
+this.tareas = this.tareasService.obtenerTareas();
+}
 
 abrirModal(){
 this.mostrarModal=true;
@@ -47,7 +55,7 @@ descripcion:this.descripcion,
 completado:false
 };
 
-this.tareas.push(nuevaTarea);
+this.tareasService.agregarTarea(nuevaTarea);
 
 this.titulo="";
 this.fecha="";
@@ -57,7 +65,7 @@ this.cerrarModal();
 }
 
 terminarTarea(tarea:any){
-tarea.completado=true;
+this.tareasService.terminarTarea(tarea);
 }
 
 }
