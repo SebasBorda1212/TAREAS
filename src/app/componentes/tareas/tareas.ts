@@ -18,7 +18,7 @@ tareas:any[] = [];
 mostrarModal=false;
 
 titulo="";
-fecha=""; // ✅ ESTA ES LA LÍNEA QUE FALTABA
+fecha="";
 descripcion="";
 
 constructor(private tareasService:TareasService){}
