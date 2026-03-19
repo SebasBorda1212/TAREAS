@@ -29,7 +29,9 @@
 
 <h1>{{usuarioSeleccionado?.nombre}}</h1>
 
-<app-tareas></app-tareas>
+<app-tareas
+[usuarioId]="usuarioSeleccionado?.id">
+</app-tareas>
 
 </div>
 

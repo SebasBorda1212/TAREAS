@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TareasService } from '../../services/tareas.service';
 
@@ -11,19 +11,22 @@ styleUrl: './tareas.css'
 })
 export class Tareas {
 
+@Input() usuarioId!: number;
+
 tareas:any[] = [];
 
 mostrarModal=false;
 
 titulo="";
-fecha="";
 descripcion="";
 
 constructor(private tareasService:TareasService){}
 
-/* 🔥 ESTE ES EL TRUCO */
-ngOnInit(){
-this.tareas = this.tareasService.obtenerTareas();
+/* 🔥 CARGAR TAREAS DEL USUARIO */
+ngOnChanges(){
+if(this.usuarioId){
+this.tareas = this.tareasService.obtenerTareas(this.usuarioId);
+}
 }
 
 abrirModal(){
@@ -55,10 +58,9 @@ descripcion:this.descripcion,
 completado:false
 };
 
-this.tareasService.agregarTarea(nuevaTarea);
+this.tareasService.agregarTarea(this.usuarioId, nuevaTarea);
 
 this.titulo="";
-this.fecha="";
 this.descripcion="";
 
 this.cerrarModal();

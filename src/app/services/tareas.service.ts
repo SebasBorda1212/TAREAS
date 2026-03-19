@@ -5,14 +5,25 @@ import { Injectable } from '@angular/core';
 })
 export class TareasService {
 
-  tareas:any[] = [];
+  /* 🔥 objeto donde cada usuario tiene sus tareas */
+  tareasPorUsuario:any = {};
 
-  obtenerTareas(){
-    return this.tareas;
+  obtenerTareas(usuarioId:number){
+
+    if(!this.tareasPorUsuario[usuarioId]){
+      this.tareasPorUsuario[usuarioId] = [];
+    }
+
+    return this.tareasPorUsuario[usuarioId];
   }
 
-  agregarTarea(tarea:any){
-    this.tareas.push(tarea);
+  agregarTarea(usuarioId:number, tarea:any){
+
+    if(!this.tareasPorUsuario[usuarioId]){
+      this.tareasPorUsuario[usuarioId] = [];
+    }
+
+    this.tareasPorUsuario[usuarioId].push(tarea);
   }
 
   terminarTarea(tarea:any){
