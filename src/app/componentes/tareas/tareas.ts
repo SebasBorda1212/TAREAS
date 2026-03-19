@@ -18,11 +18,11 @@ tareas:any[] = [];
 mostrarModal=false;
 
 titulo="";
+fecha=""; // ✅ ESTA ES LA LÍNEA QUE FALTABA
 descripcion="";
 
 constructor(private tareasService:TareasService){}
 
-/* 🔥 CARGAR TAREAS DEL USUARIO */
 ngOnChanges(){
 if(this.usuarioId){
 this.tareas = this.tareasService.obtenerTareas(this.usuarioId);
@@ -39,14 +39,18 @@ this.mostrarModal=false;
 
 agregarTarea(){
 
-const ahora = new Date();
+const fechaObj = new Date(this.fecha);
 
-const fechaFormateada = ahora.toLocaleString('es-CO', {
+const fechaFormateada =
+fechaObj.toLocaleDateString('es-CO', {
 weekday:'long',
 year:'numeric',
 month:'long',
-day:'numeric',
-hour:'numeric',
+day:'numeric'
+})
++ ' - ' +
+fechaObj.toLocaleTimeString('es-CO', {
+hour:'2-digit',
 minute:'2-digit',
 hour12:true
 });
@@ -61,6 +65,7 @@ completado:false
 this.tareasService.agregarTarea(this.usuarioId, nuevaTarea);
 
 this.titulo="";
+this.fecha="";
 this.descripcion="";
 
 this.cerrarModal();
